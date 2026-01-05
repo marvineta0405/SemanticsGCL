@@ -317,7 +317,7 @@ class Model(nn.Module):
         # Learnable Matrices
 
         self.attention = Combined_text(4*base_channel, 4*base_channel, qk_dim = 32, v_dim= 32, num_heads= 8, num_blocks=3)
-        self.corelation = MultiBlockCrossAttention(4*base_channel,num_heads=8, num_blocks=3)
+        
 
         nn.init.normal_(self.fc.weight, 0, math.sqrt(2. / num_class))
         bn_init(self.data_bn, 1)
