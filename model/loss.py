@@ -43,10 +43,10 @@ class InfoNCEGraph(nn.Module):
         dist = torch.clamp(dist, min=0)  # numerical stability
         return dist
     
-    def NN(self, z, Q):
-        sims = z @ Q.T
+    def NN(self, f_spatial,  f_semantic):
+        sims = f_spatial @ f_semantic.T
         nn_idxes = sims.argmax(dim=1)  # Top-1 NN indices
-        return Q[nn_idxes]
+        return f_semantic[nn_idxes]
     
     def forward(self, f, graph2_semantic, label, input_index):
         # f: n c label: n
