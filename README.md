@@ -105,4 +105,4 @@ python main.py --config config/nturgbd120-cross-subject/default.yaml --model mod
 ```
 ## Acknowledgements
 
-This repo is based on [CTR-GCN](https://github.com/Uason-Chen/CTR-GCN/tree/main) . The data processing is borrowed from [SGN](https://github.com/microsoft/SGN) and [HCN](https://github.com/huguyuehuhu/HCN-pytorch).
+This repo is based on [CTR-GCN](https://github.com/Uason-Chen/CTR-GCN/tree/main) . The data processing is borrowed from [SGN](https://github.com/microsoft/SGN) and [HCN](https://github.com/huguyuehuhu/HCN-pytorch). Many thanks to the original authors for their work!
