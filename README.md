@@ -78,8 +78,8 @@ Put downloaded data into the following directory structure:
 - Change the config file depending on what you want.
 
 ```
-# Example: training CTRGCN on NTU RGB+D 120 cross subject with GPU 0
-python main.py --config config/nturgbd120-cross-subject/default.yaml --work-dir work_dir/ntu120/csub/ctrgcn --device 0
+# Example: training SemanticsGCL on NTU RGB+D 120 cross subject with GPU 0
+python main.py --config config/nturgbd120-cross-subject/default.yaml --work-dir work_dir/ntu120/csub/semanticsGCL --device 0
 # Example: training provided baseline on NTU RGB+D 120 cross subject
 python main.py --config config/nturgbd120-cross-subject/default.yaml --model model.baseline.Model--work-dir work_dir/ntu120/csub/baseline --device 0
 ```
@@ -87,14 +87,14 @@ python main.py --config config/nturgbd120-cross-subject/default.yaml --model mod
 - To train model on NTU RGB+D 60/120 with bone or motion modalities, setting `bone` or `vel` arguments in the config file `default.yaml` or in the command line.
 
 ```
-# Example: training CTRGCN on NTU RGB+D 120 cross subject under bone modality
-python main.py --config config/nturgbd120-cross-subject/default.yaml --train_feeder_args bone=True --test_feeder_args bone=True --work-dir work_dir/ntu120/csub/ctrgcn_bone --device 0
+# Example: training semanticsGCL on NTU RGB+D 120 cross subject under bone modality
+python main.py --config config/nturgbd120-cross-subject/default.yaml --train_feeder_args bone=True --test_feeder_args bone=True --work-dir work_dir/ntu120/csub/semanticsGCL_bone --device 0
 ```
 
 - To train model on NW-UCLA with bone or motion modalities, you need to modify `data_path` in `train_feeder_args` and `test_feeder_args` to "bone" or "motion" or "bone motion", and run
 
 ```
-python main.py --config config/ucla/default.yaml --work-dir work_dir/ucla/ctrgcn_xxx --device 0
+python main.py --config config/ucla/default.yaml --work-dir work_dir/ucla/semanticsGCL_xxx --device 0
 ```
 
 - To train your own model, put model file `your_model.py` under `./model` and run:
@@ -102,20 +102,6 @@ python main.py --config config/ucla/default.yaml --work-dir work_dir/ucla/ctrgcn
 ```
 # Example: training your own model on NTU RGB+D 120 cross subject
 python main.py --config config/nturgbd120-cross-subject/default.yaml --model model.your_model.Model --work-dir work_dir/ntu120/csub/your_model --device 0
-```
-
-### Testing
-
-- To test the trained models saved in <work_dir>, run the following command:
-
-```
-python main.py --config <work_dir>/config.yaml --work-dir <work_dir> --phase test --save-score True --weights <work_dir>/xxx.pt --device 0
-```
-
-- To ensemble the results of different modalities, run 
-```
-# Example: ensemble four modalities of CTRGCN on NTU RGB+D 120 cross subject
-python ensemble.py --datasets ntu120/xsub --joint-dir work_dir/ntu120/csub/ctrgcn --bone-dir work_dir/ntu120/csub/ctrgcn_bone --joint-motion-dir work_dir/ntu120/csub/ctrgcn_motion --bone-motion-dir work_dir/ntu120/csub/ctrgcn_bone_motion
 ```
 ## Acknowledgements
 
