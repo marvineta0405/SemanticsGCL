@@ -2,6 +2,7 @@
 This repo is the official implementation for SemanticsGCL: Leveraging Semantic Vision-Language Priors to Enhance Skeleton-based Action Recognition. Full code will be released after acceptance.
 # Architecture of SemanticsGCL
 <img width="4280" height="3191" alt="final_general_overview" src="https://github.com/user-attachments/assets/bed85c7c-b22e-4319-8cef-ab770a19f68d" />
+
 # Prerequisites
 
 - Python >= 3.6
